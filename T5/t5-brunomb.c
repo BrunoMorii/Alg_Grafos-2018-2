@@ -184,7 +184,11 @@ void inserir(Fila *fila, int vertice, int custo){
 		}
 
 		//outro caso
-		while( (aux->prox != NULL) && (aux->prox->custo <= no_novo->custo && aux->prox->indice < no_novo->indice) ){
+		while( (aux->prox != NULL) && (aux->prox->custo < no_novo->custo) ){
+			aux = aux->prox;
+		}
+
+		while( (aux->prox != NULL) && (aux->prox->custo == no_novo->custo && aux->prox->indice < no_novo->indice) ){
 			aux = aux->prox;
 		}
 
